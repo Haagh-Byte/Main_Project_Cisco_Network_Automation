@@ -1,0 +1,17 @@
+default interface ethernet1/21
+default interface ethernet1/22
+default interface ethernet1/23
+default interface ethernet1/24
+default interface ethernet1/25
+default interface ethernet1/26
+default interface ethernet1/27
+default interface ethernet1/28
+default interface ethernet1/29
+default interface ethernet1/30
+default interface ethernet1/31
+default interface ethernet1/32
+default interface ethernet1/33
+default interface ethernet1/34
+default interface ethernet1/35
+default interface ethernet1/36
+default interface ethernet1/37

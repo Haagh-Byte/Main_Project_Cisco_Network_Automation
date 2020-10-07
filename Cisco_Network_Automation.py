@@ -23,8 +23,9 @@ def cleanupfilesmenu():
 
 # Call of SQL to CSV function
 sqltocsv()
-# 
+# Specify source CSV data
 source_csv_file = "SQL_CSV_Export.csv"
+# Specify jinja template file
 interface_template_file = "switchport-interface-template.j2"
 
 # Cisco NXOS sandbox login info

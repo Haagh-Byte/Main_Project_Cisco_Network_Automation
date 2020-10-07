@@ -24,6 +24,8 @@ def connect_ssh_send_config():
         output = ch.send_config_set(config_set)
         print(output)
 
+
+# Function for telnet connection
 def connect_telnet():
     """HOST=”192.168.43.10″
     user = raw_input(“Enter your telnet username:“)
@@ -48,6 +50,8 @@ def connect_telnet():
     tn.write(“end\n”)    ##ending the configuration
     tn.write(“exit\n”)"""
 
+
+# Get serial connection info, COM port, Hardware ID, Hardware description
 def getserialport():
     import serial.tools.list_ports
     ports = serial.tools.list_ports.comports()
@@ -55,6 +59,8 @@ def getserialport():
     for port, desc, hwid in sorted(ports):
         print("{}: {} [{}]".format(port, desc, hwid))
 
+
+# Function for serial connection
 def connect_serial():
     print()
 

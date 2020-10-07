@@ -3,6 +3,7 @@ from datetime import datetime
 from SQL_Connection import *
 
 
+# Main menu, this menu is the first menu to interact with
 def main_menu():
     answer=True
     while answer:
@@ -30,6 +31,7 @@ def main_menu():
            print("\n Invalid choice")
 
 
+# Config menu, choose desired connection method
 def config_menu():
     answer=True
     while answer:
@@ -41,10 +43,13 @@ def config_menu():
         """)
         answer=input("How would you like to connect to the network equipment?")
         if answer=="1a":
+            # Execute automation program
             exec(open("Cisco_Network_Automation.py").read())
+            # Define data for the logging function
             timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             switch_name = "sbx-n9kv-ao"
             config_type = "Automated"
+            # Run the logging function with the data specified
             InsertLog(timestamp, switch_name, config_type)
 
         elif answer=="1b":
@@ -60,6 +65,7 @@ def config_menu():
             print("\n Invalid choice")
 
 
+# Menu for config logging
 def automation_log_menu():
     answer=True
     while answer:
@@ -86,4 +92,5 @@ def automation_log_menu():
             print("\n Invalid choice")
 
 
+# Initiate program, main menu
 main_menu()

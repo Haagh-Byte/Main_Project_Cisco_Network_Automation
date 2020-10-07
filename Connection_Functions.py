@@ -1,6 +1,7 @@
 import telnetlib
 import getpass
 import time
+import netmiko
 
 
 def connect_ssh_send_config():

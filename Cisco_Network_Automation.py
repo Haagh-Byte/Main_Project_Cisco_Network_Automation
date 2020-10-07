@@ -41,11 +41,11 @@ device = {
 # var that will contain all the final config that will be send to the switch
 interface_configs = ""
 
-# Open up the Jinja template file (as text) and then create a Jinja Template Object
+# Open the Jinja template file
 with open(interface_template_file) as f:
     interface_template = Template(f.read(), keep_trailing_newline=True)
 
-# Open the SQL generated CSV file containing the config data, we wan't to send to the device
+# Open the SQL generated CSV file containing the config data, we want to send to the device
 with open(source_csv_file) as f:
     # CSV DictReader to get data from the SQL generated CSV
     reader = csv.DictReader(f)
@@ -62,7 +62,7 @@ with open(source_csv_file) as f:
         # Merge the individual interface configs to a complete config containing all interfaces
         interface_configs += interface_config
 
-# Saving the final configuraiton to a .txt file
+# Saving the final config to a .txt file
 with open("interface_configs.txt", "w") as f:
     f.write(interface_configs)
 

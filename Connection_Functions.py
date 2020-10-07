@@ -4,8 +4,9 @@ import time
 import netmiko
 
 
+# SSH connection function containing login info
 def connect_ssh_send_config():
-    # DevNet Sandbox Nexus 9000 switch to send configuration to
+    # Cisco NXOS sandbox login info
     device = {
              "address": "sbx-nxos-mgmt.cisco.com",
              "device_type": "cisco_nxos",
@@ -13,7 +14,7 @@ def connect_ssh_send_config():
              "username": "admin",
              "password": "Admin_1234!"
             }
-    # Use Netmiko to connect to the device and send the configuration
+    # Connection handler from netmiko to connect and send config to the device
     with ConnectHandler(ip = device["address"],
                         port = device["ssh_port"],
                         username = device["username"],

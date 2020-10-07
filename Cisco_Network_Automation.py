@@ -4,7 +4,7 @@ from netmiko import ConnectHandler
 from SQL_Connection import *
 from Connection_Functions import *
 
-
+# Function for cleaning up temp files, used to generate the data we use to generate the final configs
 def cleanupfilesmenu():
     answer=True
     while answer:
@@ -21,11 +21,13 @@ def cleanupfilesmenu():
             print("\n Invalid choice")
 
 
+# Call of SQL to CSV function
 sqltocsv()
+# 
 source_csv_file = "SQL_CSV_Export.csv"
 interface_template_file = "switchport-interface-template.j2"
 
-# DevNet Sandbox Nexus 9000 switch to send configuration to
+# Cisco NXOS sandbox login info
 device = {
              "address": "sbx-nxos-mgmt.cisco.com",
              "device_type": "cisco_nxos",
@@ -35,18 +37,18 @@ device = {
             }
 
 
-# String that will hold final full configuration of all interfaces
+# var that will contain all the final config that will be send to the switch
 interface_configs = ""
 
 # Open up the Jinja template file (as text) and then create a Jinja Template Object
 with open(interface_template_file) as f:
     interface_template = Template(f.read(), keep_trailing_newline=True)
 
-# Open up the CSV file containing the data
+# Open the SQL generated CSV file containing the config data, we wan't to send to the device
 with open(source_csv_file) as f:
-    # Use DictReader to access data from CSV
+    # CSV DictReader to get data from the SQL generated CSV
     reader = csv.DictReader(f)
-    # For each row in the CSV, generate an interface configuration using the jinja template
+    # For each row in the SQL generated CSV, generate an interface config by using the jinja2 template file
     for row in reader:
         interface_config = interface_template.render(
             interface = row["Interface"],
@@ -56,14 +58,14 @@ with open(source_csv_file) as f:
             purpose = row["Host_Role"]
         )
 
-        # Append this interface configuration to the full configuration
+        # Merge the individual interface configs to a complete config containing all interfaces
         interface_configs += interface_config
 
-# Save the final configuraiton to a file
+# Saving the final configuraiton to a .txt file
 with open("interface_configs.txt", "w") as f:
     f.write(interface_configs)
 
-# Use Netmiko to connect to the device and send the configuration
+# Connection handler from netmiko to connect and send config to the device
 with ConnectHandler(ip = device["address"],
                     port = device["ssh_port"],
                     username = device["username"],

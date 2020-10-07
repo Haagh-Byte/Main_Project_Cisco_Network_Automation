@@ -2,11 +2,13 @@ import pyodbc
 import csv
 
 
+# Class for containing SQL functions, mainly used for unittest purpose
 class DatabaseConnection:
     def __init__(self):
         self.sql_connection_var = self.connect_sql()
         self.cursor = self.sql_connection_var.cursor()
 
+# Function for connecting to the SQL server
     def connect_sql(self):
         sql_connection_var = pyodbc.connect('Driver={SQL Server};'
                                             'Server=THINOTE20-NHS;'
@@ -14,11 +16,13 @@ class DatabaseConnection:
                                             'Trusted_Connection=yes;')
         return sql_connection_var
 
+# Function for inserting queries to the SQL server
     def insert_sql_query(self, query_to_run):
         self.cursor.execute(query_to_run)
         self.sql_connection_var.commit()
 
 
+# Var containing SQL login info
 SQLConnection = pyodbc.connect('Driver={SQL Server};'
                                'Server=THINOTE20-NHS;'
                                'Database=CiscoNetworkAutomation;'
@@ -68,7 +72,7 @@ def printsqlswitchconfig():
     for row in cursor:
         print(row)
 
-
+# Function for collecting SQL SELECT output and converting to a CSV file, used for config source data
 def sqltocsv():
     global SQLConnection
     # File name
@@ -95,11 +99,12 @@ def sqltocsv():
     csvFile.writerow(headers)
     csvFile.writerows(results)
 
+# Close SQL connection
     SQLConnection.close()
 
 
-#Test of functions
-#printsql()
-#sqltocsv()
-#clearfirst10log_entries()
-#clearlog()
+# Test of functions
+# printsql()
+# sqltocsv()
+# clearfirst10log_entries()
+# clearlog()

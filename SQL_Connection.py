@@ -14,7 +14,7 @@ class DatabaseConnection:
                                             'Trusted_Connection=yes;')
         return sql_connection_var
 
-    def insert_sql_query(self, query_to_run, state):
+    def insert_sql_query(self, query_to_run):
         if state == None:
             self.cursor.execute(query_to_run)
             self.sql_connection_var.commit()

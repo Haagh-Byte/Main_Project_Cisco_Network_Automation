@@ -99,6 +99,7 @@ def printsqlswitchconfig():
     for row in cursor:
         print(row)
 
+
 # Function for collecting SQL SELECT output and converting to a CSV file, used for config source data
 def sqltocsv():
     global SQLConnection

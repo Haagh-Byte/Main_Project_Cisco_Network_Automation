@@ -24,19 +24,19 @@ class DatabaseConnection:
 
 class ConfigLogClass(DatabaseConnection):
 
-    def __init__(self, edb_test, switch_name_test, config_type_test):
+    def __init__(self, timestamp_test, switch_name_test, config_type_test):
         DatabaseConnection.__init__(self)
-        self.edb_test = edb_test
+        self.timestamp_test = timestamp_test
         self.switch_name_test = switch_name_test
         self.config_type_test = config_type_test
 
     def config_log_select(self):
-        query = "SELECT Timestamp, Switch_Name, ConfigType FROM dbo.Config_Log WHERE Timestamp =" + " " + str(self.edb_test) + " AND Switch_Name = " + str(self.switch_name_test) + " AND ConfigType = " + str(self.config_type_test)
+        query = "SELECT Timestamp, Switch_Name, ConfigType FROM dbo.Config_Log WHERE Timestamp =" + " " + str(self.timestamp_test) + " AND Switch_Name = " + str(self.switch_name_test) + " AND ConfigType = " + str(self.config_type_test)
         row = self.insert_sql_query(query)
         return row
 
     def config_log_insert(self):
-        query = "INSERT INTO dbo.Config_Log (Timestamp,Switch_Name,ConfigType) Values (" + str(self.edb_test) + ", '" + str(self.switch_name_test) + "', " + str(self.config_type_test) + ")"
+        query = "INSERT INTO dbo.Config_Log (Timestamp,Switch_Name,ConfigType) Values (" + str(self.timestamp_test) + ", '" + str(self.switch_name_test) + "', " + str(self.config_type_test) + ")"
         self.insert_sql_query(query)
 
     def config_log_delete(self):

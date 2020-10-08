@@ -4,6 +4,7 @@ from netmiko import ConnectHandler
 from SQL_Connection import *
 from Connection_Functions import *
 
+
 # Function for cleaning up temp files, used to generate the data we use to generate the final configs
 def cleanupfilesmenu():
     answer=True

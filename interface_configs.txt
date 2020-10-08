@@ -1,0 +1,158 @@
+!
+interface Ethernet1/21
+  description AD01 port NIC1 server-role AD-Server
+  switchport
+  switchport mode access
+  switchport access vlan 200
+  spanning-tree port type edge
+  no shutdown
+
+ 
+!
+interface Ethernet1/22
+  description AD01 port NIC2 server-role AD-Server
+  switchport
+  switchport mode access
+  switchport access vlan 200
+  spanning-tree port type edge
+  no shutdown
+
+ 
+!
+interface Ethernet1/23
+  description SQL01 port NIC1 server-role DB-Server
+  switchport
+  switchport mode access
+  switchport access vlan 201
+  spanning-tree port type edge
+  no shutdown
+
+ 
+!
+interface Ethernet1/24
+  description SQL01 port NIC2 server-role DB-Server
+  switchport
+  switchport mode access
+  switchport access vlan 201
+  spanning-tree port type edge
+  no shutdown
+
+ 
+!
+interface Ethernet1/25
+  description RDS-GW port NIC1 server-role Gateway-Server
+  switchport
+  switchport mode trunk
+  no shutdown
+
+ 
+!
+interface Ethernet1/26
+  description RDS-GW port NIC2 server-role Gateway-Server
+  switchport
+  switchport mode trunk
+  no shutdown
+
+ 
+!
+interface Ethernet1/27
+  description RDS01 port NIC1 server-role Session-Host
+  switchport
+  switchport mode access
+  switchport access vlan 202
+  spanning-tree port type edge
+  no shutdown
+
+ 
+!
+interface Ethernet1/28
+  description RDS01 port NIC2 server-role Session-Host
+  switchport
+  switchport mode access
+  switchport access vlan 202
+  spanning-tree port type edge
+  no shutdown
+
+ 
+!
+interface Ethernet1/29
+  description RDS02 port NIC1 server-role Session-Host
+  switchport
+  switchport mode access
+  switchport access vlan 202
+  spanning-tree port type edge
+  no shutdown
+
+ 
+!
+interface Ethernet1/30
+  description RDS02 port NIC2 server-role Session-Host
+  switchport
+  switchport mode access
+  switchport access vlan 202
+  spanning-tree port type edge
+  no shutdown
+
+ 
+!
+interface Ethernet1/31
+  description WEB01 port NIC1 server-role Web-Server
+  switchport
+  switchport mode access
+  switchport access vlan 99
+  spanning-tree port type edge
+  no shutdown
+
+ 
+!
+interface Ethernet1/32
+  description ESXi01 port NIC1 server-role VMware-Host
+  switchport
+  switchport mode trunk
+  no shutdown
+
+ 
+!
+interface Ethernet1/33
+  description ESXi01 port NIC2 server-role VMware-Host
+  switchport
+  switchport mode trunk
+  no shutdown
+
+ 
+!
+interface Ethernet1/34
+  description ESXi02 port NIC1 server-role VMware-Host
+  switchport
+  switchport mode trunk
+  no shutdown
+
+ 
+!
+interface Ethernet1/35
+  description ESXi02 port NIC2 server-role VMware-Host
+  switchport
+  switchport mode trunk
+  no shutdown
+
+ 
+!
+interface Ethernet1/36
+  description AD02 port NIC1 server-role AD-Server
+  switchport
+  switchport mode access
+  switchport access vlan 200
+  spanning-tree port type edge
+  no shutdown
+
+ 
+!
+interface Ethernet1/37
+  description AD02 port NIC2 server-role AD-Server
+  switchport
+  switchport mode access
+  switchport access vlan 200
+  spanning-tree port type edge
+  no shutdown
+
+ 
